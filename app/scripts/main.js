@@ -55,13 +55,18 @@ app.controller('ReposCtrl', function ($scope, $http, apiURL) {
     $scope.valid = function() {
         // check if there's an error, if there is create a useful
         // error message and highlight the input field red.
+        var userField = document.getElementById('userField');
+
         if ($scope.reposData['err'] === "user doesn't exist" ) {
             $scope.errorReason = 'User "' + $scope.reposData['user'] + '"' +
                 ' does not refer to a valid github account';
-            var userField = document.getElementById('userField');
+
             angular.element(userField).css('borderColor', 'red');
             return false;
         }
+
+        // set borderColor to default if there aren't any problems
+        angular.element(userField).css('borderColor', '');
 
         return true;
     }
