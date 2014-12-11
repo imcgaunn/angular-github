@@ -1,0 +1,68 @@
+<!doctype html>
+<html class="no-js" ng-app="ReposApp">
+  <head>
+    <meta charset="utf-8">
+    <!--
+      File: app/index.html
+      91.461 Assignment 9
+      Ian McGaunn, UMass Lowell Computer Science, imcgaunn@cs.uml.edu
+      Copyright (c) 2014 by Ian McGaunn. All rights reserved. May be freely copied or excerpted for educational purposes with credit to the author.
+      -->
+    <title>assignment_9</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/6df2b309.favicon.ico">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="styles/a220b4e6.main.css">
+  </head>
+  <body>
+
+    <div ng-controller="ReposCtrl" id="container">
+
+      <h2> Enter a Github Username </h2>
+
+      <!-- update the user property of model when form submitted -->
+      <form id="inputs" ng-submit="updateUser()">
+        <input type="text" id="userField" value="bbatsov">
+        <input type="submit" value="Get Repository Information">
+      </form>
+
+
+      <!-- show whatever the current error is, if there is one -->
+      <div id="invalid" ng-show="invalid()">
+        {{errorReason}}
+      </div>
+
+      <!-- if there isn't an error, show the table generated -->
+      <div id="valid" ng-show="valid()">
+        <h3> Showing Repository Information for user: {{user}} </h3>
+
+        <span id="filter">
+          <label for="queryinput">Search (Name)</label>
+          <input id="queryinput "type="text" ng-model="query">
+        </span>
+
+        <table id="repoInfo">
+          <tr>
+            <th> Name </th>
+            <th> Stars </th>
+            <th> Description </th>
+          </tr>
+          <!-- filter by the name property of each object using the
+               query property of the model, determined by an input -->
+          <tr ng-repeat="repo in reposData | filter:{ name: query }">
+            <td><a href="{{repo.html_url}}">{{repo.name}}</a></td>
+            <td>{{repo.stargazers_count}}</td>
+            <td>{{repo.description}}</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.min.js"></script>
+
+   <script src="scripts/ca77d01c.main.js"></script>
+</body>
+</html>
