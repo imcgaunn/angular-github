@@ -43,7 +43,7 @@
         {{errorReason}}
       </div>
 
-      <!-- if there isn't an error, show the tautble generated -->
+      <!-- if there isn't an error, show the table generated -->
       <div id="valid" ng-show="valid()">
         <h3> Showing Repository Information for user: {{user}} </h3>
 
@@ -62,7 +62,7 @@
                  http://curran.github.io/screencasts/introToAngular/exampleViewer/#/26 -->
             <th><a href="" ng-click="sortField = 'name'; reverse = !reverse">Name</a></th>
             <th><a href="" ng-click="sortField = 'stargazers_count'; reverse = !reverse">Stars</a></th>
-            <th> Description </th>
+            <th>Description</th>
           </tr>
           <!-- filter by the name property of each object using the
                query property of the model, determined by an input -->
