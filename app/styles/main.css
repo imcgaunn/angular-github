@@ -1,0 +1,45 @@
+/*
+ * File: app/styles/main.css
+ * 91.461 Assignment 9
+ * Ian McGaunn, UMass Lowell Computer Science, imcgaunn@cs.uml.edu
+ * Copyright (c) 2014 by Ian McGaunn. All rights reserved.
+ * May be freely copied or excerpted for educational purposes with credit to the author.
+ */
+
+/* sane defaults for the body */
+body {
+  background: #fafafa;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+  background-color: #eee;
+}
+
+/* center the container on the page and make the fonts large.
+ * make the background grey.
+ */
+#container {
+  font-size: 18px;
+  width: 750px;
+  background-color: #eee;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* align the text from headers to the left of the table
+ * cells
+ */
+th {
+  text-align: left;
+}
+
+/* add nicer spacing to all the table elements */
+th, tr {
+  padding: 5px;
+}
+
+td {
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid #222; /* add borders around table cells */
+}
+
