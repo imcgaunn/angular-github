@@ -16,6 +16,8 @@ app.constant('apiURL', 'https://api.github.com/users');
 app.controller('ReposCtrl', function ($scope, $http, apiURL) {
     $scope.user = 'bbatsov'; // default the user property of the model
     $scope.query = '';       // make sure the query is set to nothing
+    $scope.sortField = 'name';
+    $scope.reverse = true;
 
     // when user changes, fetch new json from github API
     $scope.$watch('user', function(nv, ov) {
