@@ -14,10 +14,13 @@ app.constant('apiURL', 'https://api.github.com/users');
 
 //the controller function for the app 'ReposApp'
 app.controller('ReposCtrl', function ($scope, $http, apiURL) {
+
+    // intialize variables
     $scope.user = 'bbatsov'; // default the user property of the model
     $scope.query = '';       // make sure the query is set to nothing
     $scope.sortField = 'name';
     $scope.reverse = true;
+    $scope.reposData = {};
 
     // when user changes, fetch new json from github API
     $scope.$watch('user', function(nv, ov) {
@@ -58,19 +61,17 @@ app.controller('ReposCtrl', function ($scope, $http, apiURL) {
         // check if there's an error, if there is create a useful
         // error message and highlight the input field red.
         var userField = document.getElementById('userField');
-
-        if ($scope.reposData['err'] === "user doesn't exist" ) {
+        if (typeof($scope.reposData['err']) === 'undefined') {
+            angular.element(userField).css('borderColor', '');
+            return true;
+        }
+        else {
             $scope.errorReason = 'User "' + $scope.reposData['user'] + '"' +
                 ' does not refer to a valid github account';
 
             angular.element(userField).css('borderColor', 'red');
             return false;
         }
-
-        // set borderColor to default if there aren't any problems
-        angular.element(userField).css('borderColor', '');
-
-        return true;
     }
 
 
