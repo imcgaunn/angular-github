@@ -1,5 +1,9 @@
 // Generated on 2014-12-10 using
 // generator-webapp 0.5.1
+
+
+// since generated: added buildcontrol rule to simplify
+// pushing builds to github pages
 'use strict';
 
 // # Globbing
@@ -318,7 +322,22 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
+    },
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      pages: {
+        options: {
+          remote: 'git@github.com:imcgaunn/angular-github.git',
+          branch: 'gh-pages'
+        }
+      }
     }
+
   });
 
 
