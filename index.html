@@ -3,10 +3,13 @@
   <head>
     <meta charset="utf-8">
     <!--
-      File: app/index.html
-      91.461 Assignment 9
-      Ian McGaunn, UMass Lowell Computer Science, imcgaunn@cs.uml.edu
-      Copyright (c) 2014 by Ian McGaunn. All rights reserved. May be freely copied or excerpted for educational purposes with credit to the author.
+        File: app/index.html
+        91.461 Assignment 9
+        Ian McGaunn, UMass Lowell Computer Science, imcgaunn@cs.uml.edu
+        Copyright (c) 2014 by Ian McGaunn. All rights reserved. May be freely copied or excerpted for educational purposes with credit to the author.
+
+        This page makes use of the Pure CSS framework http://purecss.io/start/
+        as well as AngularJS https://angularjs.org
       -->
     <title>assignment_9</title>
     <meta name="description" content="">
@@ -14,7 +17,8 @@
     <link rel="shortcut icon" href="/6df2b309.favicon.ico">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <link rel="stylesheet" href="styles/a220b4e6.main.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" href="styles/9b4d08a0.main.css">
   </head>
   <body>
 
@@ -23,9 +27,9 @@
       <h2> Enter a Github Username </h2>
 
       <!-- update the user property of model when form submitted -->
-      <form id="inputs" ng-submit="updateUser()">
+      <form class="pure-form" id="inputs" ng-submit="updateUser()">
         <input type="text" id="userField" value="bbatsov">
-        <input type="submit" value="Get Repository Information">
+        <input type="submit" class="pure-button pure-button-primary" value="Get Repository Information">
       </form>
 
 
@@ -34,16 +38,18 @@
         {{errorReason}}
       </div>
 
-      <!-- if there isn't an error, show the table generated -->
+      <!-- if there isn't an error, show the tautble generated -->
       <div id="valid" ng-show="valid()">
         <h3> Showing Repository Information for user: {{user}} </h3>
 
-        <span id="filter">
+        <form class="pure-form">
           <label for="queryinput">Search (Name)</label>
           <input id="queryinput "type="text" ng-model="query">
-        </span>
+        </form>
 
-        <table id="repoInfo">
+        <div id="spacer"></div>
+
+        <table id="repoInfo" class="pure-table pure-table-striped">
           <tr>
             <th> Name </th>
             <th> Stars </th>
@@ -63,6 +69,6 @@
 
     <script src="https://code.angularjs.org/1.3.6/angular.js"></script>
 
-   <script src="scripts/ca77d01c.main.js"></script>
-</body>
+    <script src="scripts/fbb9eeae.main.js"></script>
+  </body>
 </html>
