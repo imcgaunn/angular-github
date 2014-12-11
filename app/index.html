@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <!--
-      File: app/index.html
-      91.461 Assignment 9
-      Ian McGaunn, UMass Lowell Computer Science, imcgaunn@cs.uml.edu
-      Copyright (c) 2014 by Ian McGaunn. All rights reserved. May be freely copied or excerpted for educational purposes with credit to the author.
+        File: app/index.html
+        91.461 Assignment 9
+        Ian McGaunn, UMass Lowell Computer Science, imcgaunn@cs.uml.edu
+        Copyright (c) 2014 by Ian McGaunn. All rights reserved. May be freely copied or excerpted for educational purposes with credit to the author.
       -->
     <title>assignment_9</title>
     <meta name="description" content="">
@@ -17,6 +17,7 @@
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -28,9 +29,9 @@
       <h2> Enter a Github Username </h2>
 
       <!-- update the user property of model when form submitted -->
-      <form id="inputs" ng-submit="updateUser()">
+      <form class="pure-form" id="inputs" ng-submit="updateUser()">
         <input type="text" id="userField" value="bbatsov">
-        <input type="submit" value="Get Repository Information">
+        <input type="submit" class="pure-button pure-button-primary" value="Get Repository Information">
       </form>
 
 
@@ -39,16 +40,18 @@
         {{errorReason}}
       </div>
 
-      <!-- if there isn't an error, show the table generated -->
+      <!-- if there isn't an error, show the tautble generated -->
       <div id="valid" ng-show="valid()">
         <h3> Showing Repository Information for user: {{user}} </h3>
 
-        <span id="filter">
+        <form class="pure-form">
           <label for="queryinput">Search (Name)</label>
           <input id="queryinput "type="text" ng-model="query">
-        </span>
+        </form>
 
-        <table id="repoInfo">
+        <div id="spacer"></div>
+
+        <table id="repoInfo" class="pure-table pure-table-striped">
           <tr>
             <th> Name </th>
             <th> Stars </th>
@@ -68,8 +71,8 @@
 
     <script src="https://code.angularjs.org/1.3.6/angular.js"></script>
 
-   <!-- build:js({app,.tmp}) scripts/main.js -->
+    <!-- build:js({app,.tmp}) scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
-</body>
+  </body>
 </html>
