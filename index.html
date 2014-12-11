@@ -51,13 +51,17 @@
 
         <table id="repoInfo" class="pure-table pure-table-striped">
           <tr>
-            <th> Name </th>
-            <th> Stars </th>
+            <!-- Idea for sortField property came from
+                 http://curran.github.io/screencasts/introToAngular/exampleViewer/#/25 -->
+            <!-- idea for reversing sortOrder came from
+                 http://curran.github.io/screencasts/introToAngular/exampleViewer/#/26 -->
+            <th><a href="" ng-click="sortField = 'name'; reverse = !reverse">Name</a></th>
+            <th><a href="" ng-click="sortField = 'stargazers_count'; reverse = !reverse">Stars</a></th>
             <th> Description </th>
           </tr>
           <!-- filter by the name property of each object using the
                query property of the model, determined by an input -->
-          <tr ng-repeat="repo in reposData | filter:{ name: query }">
+          <tr ng-repeat="repo in reposData | filter:{ name: query } | orderBy:sortField:reverse">
             <td><a href="{{repo.html_url}}">{{repo.name}}</a></td>
             <td>{{repo.stargazers_count}}</td>
             <td>{{repo.description}}</td>
@@ -69,6 +73,6 @@
 
     <script src="https://code.angularjs.org/1.3.6/angular.js"></script>
 
-    <script src="scripts/fbb9eeae.main.js"></script>
+    <script src="scripts/07ddc332.main.js"></script>
   </body>
 </html>
